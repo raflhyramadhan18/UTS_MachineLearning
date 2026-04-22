@@ -41,22 +41,62 @@ Langkah-langkah yang dilakukan untuk menyiapkan data:
 
 ## 4. Modelling & Evaluasi Mendalam
 
-Kami membandingkan tiga algoritma klasifikasi dengan hasil evaluasi sebagai berikut:
-
-### A. Decision Tree
-Model ini membagi data berdasarkan serangkaian aturan keputusan.
-
-* **Precision (Ketepatan):**
-    - Dari seluruh buah yang diprediksi sebagai **grapefruit**, sebanyak **95%** merupakan prediksi yang benar.
-    - Dari seluruh buah yang diprediksi sebagai **orange**, sebanyak **94%** merupakan prediksi yang benar.
-* **Recall (Keberhasilan Menangkap):**
-    - Dari total **1011 data grapefruit**, model berhasil mengidentifikasi **94% (±952 data)** dengan benar. Sekitar 6% (59 data) salah diklasifikasikan sebagai orange.
-    - Dari total **989 data orange**, model berhasil mengidentifikasi **95% (±938 data)** dengan benar. Sekitar 5% (51 data) salah diklasifikasikan sebagai grapefruit.
-* **F1-Score:** Berada di kisaran **0.94**, menunjukkan keseimbangan yang sangat baik antara presisi dan recall.
-* **Confusion Matrix:** Berhasil mengklasifikasikan 952 (TN) dan 938 (TP) dengan benar.
-
 ![Confusion Matrix DT](images/CM_DT.png)
 ![Classification Report DT](images/CR_DT.png)
+
+# Evaluasi Model: Decision Tree
+Berdasarkan hasil pengujian model menggunakan *Confusion Matrix* dan *Classification Report*
+## Precision (Ketepatan)
+* **Grapefruit:** Dari seluruh buah yang diprediksi sebagai Grapefruit oleh model, sebanyak **94%** merupakan prediksi yang benar, sedangkan sekitar **6%** sebenarnya adalah Orange namun salah diprediksi sebagai Grapefruit.
+* **Orange:** Dari seluruh buah yang diprediksi sebagai Orange oleh model, sebanyak **95%** merupakan prediksi yang benar, sedangkan sekitar **5%** sebenarnya adalah Grapefruit namun salah diprediksi sebagai Orange.
+
+## Recall (Keberhasilan Menangkap)
+* **Grapefruit:** Dari total **988** data Grapefruit yang sebenarnya, model berhasil mengidentifikasi **95%** (936 data) dengan benar. Sekitar **5%** sisanya gagal dikenali dan salah diklasifikasikan sebagai Orange.
+* **Orange:** Dari total **1012** data Orange yang sebenarnya, model berhasil mengidentifikasi **94%** (947 data) dengan benar. Sekitar **6%** sisanya gagal dikenali dan salah diklasifikasikan sebagai Grapefruit.
+
+## F1-Score
+Nilai F1-Score untuk kedua kelas (Grapefruit dan Orange) berada di angka **0.94**, yang menunjukkan bahwa model memiliki keseimbangan yang sangat baik dan stabil antara *Precision* dan *Recall*.
+
+## Support (Jumlah Data Uji)
+* **Grapefruit:** 988 data.
+* **Orange:** 1012 data.
+* **Total Keseluruhan:** 2000 data.
+
+## Kesimpulan Akurasi
+Model Decision Tree ini menghasilkan **Accuracy Score sebesar 0.9415 (94.15%)**. Hal ini menunjukkan bahwa model sangat handal dan memiliki tingkat kesalahan yang rendah dalam membedakan antara buah Grapefruit dan Orange.
+
+Komponen Matriks
+Berdasarkan hasil visualisasi, kita dapat mengidentifikasi empat komponen utama:
+
+| Komponen | Nama Teknis | Jumlah | Penjelasan |
+| :--- | :--- | :--- | :--- |
+| **True Negative (TN)** | Benar Grapefruit | **936** | Model dengan benar menebak buah Grapefruit sebagai Grapefruit. |
+| **False Positive (FP)** | Salah Orange | **52** | Model menebak Orange, padahal sebenarnya adalah Grapefruit (Kesalahan Tipe I). |
+| **False Negative (FN)** | Salah Grapefruit | **65** | Model menebak Grapefruit, padahal sebenarnya adalah Orange (Kesalahan Tipe II). |
+| **True Positive (TP)** | Benar Orange | **947** | Model dengan benar menebak buah Orange sebagai Orange. |
+
+---
+
+### Pembedahan Per Kelas
+
+#### **Kelas 0 (Grapefruit)**
+* **Total Data Aktual:** 936 (TN) + 52 (FP) = **988 data**.
+* **Keberhasilan:** Model berhasil menangkap **936** data original Grapefruit.
+* **Kesalahan:** Terdapat **52** data Grapefruit yang "lolos" dan malah dianggap sebagai Orange oleh model.
+
+#### **Kelas 1 (Orange)**
+* **Total Data Aktual:** 65 (FN) + 947 (TP) = **1,012 data**.
+* **Keberhasilan:** Model sangat baik dalam mengenali Orange dengan total **947** prediksi benar.
+* **Kesalahan:** Terdapat **65** data Orange yang dideteksi secara keliru sebagai Grapefruit.
+
+---
+
+### Insight Evaluasi
+* **Keseimbangan Model:** Selisih antara kesalahan di kedua sisi (52 vs 65) cukup tipis. Ini menandakan model tidak memiliki bias yang berat ke salah satu kelas (tidak *skewed*).
+* **Akurasi Keseluruhan:** Jika kita menjumlahkan semua prediksi benar (936 + 947 = 1883) lalu dibagi total data (2000), maka didapatkan nilai **0.9415** atau **94.15%**, yang sesuai dengan *Accuracy Score* di Classification Report.
+* **Identifikasi Eror:** Model sedikit lebih sering salah mengira Orange sebagai Grapefruit (65 kejadian) dibandingkan sebaliknya (52 kejadian).
+
+
 
 ---
 
