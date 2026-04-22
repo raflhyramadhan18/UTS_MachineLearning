@@ -101,14 +101,58 @@ Berdasarkan hasil visualisasi, kita dapat mengidentifikasi empat komponen utama:
 ---
 
 ### B. Naive Bayes
-Model berbasis probabilitas Teorema Bayes.
-
-* **Akurasi:** Mencapai **92.00%**.
-* **Analisis:** Meskipun bekerja secara sederhana dengan asumsi independensi antar fitur, model ini sangat efisien dalam membedakan kelas berdasarkan nilai warna.
-* **Kelemahan:** Memiliki jumlah salah prediksi yang sedikit lebih banyak pada data yang saling tumpang tindih.
-
 ![Confusion Matrix NB](images/CM_NB.png)
 ![Classification Report NB](images/CR_NB.png)
+
+## Precision (Ketepatan)
+* **Grapefruit:** Dari seluruh buah yang diprediksi sebagai Grapefruit, sebanyak **93%** adalah benar, sementara sekitar **7%** sisanya sebenarnya adalah Orange.
+* **Orange:** Dari seluruh buah yang diprediksi sebagai Orange, sebanyak **93%** adalah benar, sementara sekitar **7%** sisanya sebenarnya adalah Grapefruit.
+
+## Recall (Keberhasilan Menangkap)
+* **Grapefruit:** Dari total **988** data Grapefruit yang asli, model berhasil mengenali **93%** (916 data) dengan benar. Sekitar **7%** data gagal teridentifikasi.
+* **Orange:** Dari total **1,012** data Orange yang asli, model berhasil mengenali **93%** (938 data) dengan benar. Sekitar **7%** data salah diklasifikasikan sebagai Grapefruit.
+
+## F1-Score
+Nilai F1-Score untuk kedua kelas berada di angka **0.93**. Hal ini menunjukkan bahwa model memiliki keseimbangan yang cukup stabil antara *Precision* dan *Recall*, meskipun sedikit di bawah performa model Decision Tree sebelumnya.
+
+## Support (Jumlah Data Uji)
+* **Grapefruit (0):** 988 data.
+* **Orange (1):** 1,012 data.
+* **Total Keseluruhan:** 2,000 data.
+
+##  Kesimpulan Akurasi
+Model Naive Bayes ini menghasilkan **Accuracy Score sebesar 0.927 (92.7%)**. Model ini bekerja dengan sangat baik dan konsisten dalam mengklasifikasikan kedua jenis buah dengan tingkat kesalahan yang seimbang di kedua kelas
+
+###  Tabel Distribusi Klasifikasi
+| Komponen | Nama Teknis | Jumlah | Penjelasan |
+| :--- | :--- | :--- | :--- |
+| **True Negative (TN)** | Benar Grapefruit | **916** | Model berhasil memprediksi buah Grapefruit dengan tepat. |
+| **False Positive (FP)** | Salah Orange | **72** | Model mengira itu Orange, padahal aslinya adalah Grapefruit (Error). |
+| **False Negative (FN)** | Salah Grapefruit | **74** | Model mengira itu Grapefruit, padahal aslinya adalah Orange (Error). |
+| **True Positive (TP)** | Benar Orange | **938** | Model berhasil memprediksi buah Orange dengan tepat. |
+
+---
+
+### Analisis Performa per Kelas
+
+#### **Kelas 0 (Grapefruit)**
+* **Total Data Aktual:** 916 (TN) + 72 (FP) = **988 data**.
+* **Akurasi Lokal:** Model mampu mengenali sekitar **92.7%** dari total data Grapefruit yang ada.
+* **Kesalahan Prediksi:** Ada **72** buah Grapefruit yang dianggap Orange oleh model.
+
+#### **Kelas 1 (Orange)**
+* **Total Data Aktual:** 74 (FN) + 938 (TP) = **1,012 data**.
+* **Akurasi Lokal:** Model mampu mengenali sekitar **92.6%** dari total data Orange yang ada.
+* **Kesalahan Prediksi:** Ada **74** buah Orange yang dianggap Grapefruit oleh model.
+
+---
+
+###  Insight & Evaluasi Model
+* **Tingkat Kesalahan Seimbang:** Menariknya, jumlah kesalahan pada Naive Bayes sangat seimbang antara False Positive (**72**) dan False Negative (**74**). Ini menunjukkan model tidak "pilih kasih" atau condong ke salah satu jenis buah saja.
+* **Efisiensi Data:** Meskipun akurasinya sedikit di bawah Decision Tree, Naive Bayes menunjukkan performa yang sangat stabil di angka 92-93% untuk semua metrik (Precision, Recall, F1-Score).
+* **Perbandingan Visual:** Pada matriks ini, warna pada kotak diagonal (916 dan 938) tetap terlihat gelap/solid, yang menandakan sebagian besar prediksi masih berada pada jalur yang benar.
+
+
 
 ---
 
