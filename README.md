@@ -41,8 +41,8 @@ Langkah-langkah yang dilakukan untuk menyiapkan data:
 
 ## 4. Modelling & Evaluasi Mendalam
 
-![Confusion Matrix DT](images/CM_DT.png)
-![Classification Report DT](images/CR_DT.png)
+![Confusion Matrix DT](images/CM_DT.png)  ![Classification Report DT](images/CR_DT.png)
+
 
 # Evaluasi Model: Decision Tree
 Berdasarkan hasil pengujian model menggunakan *Confusion Matrix* dan *Classification Report*
