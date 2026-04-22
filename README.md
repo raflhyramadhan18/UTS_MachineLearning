@@ -157,14 +157,58 @@ Model Naive Bayes ini menghasilkan **Accuracy Score sebesar 0.927 (92.7%)**. Mod
 ---
 
 ### C. Support Vector Machine (SVM)
-Model yang mencari *hyperplane* terbaik untuk memisahkan kelas.
-
-* **Akurasi:** Tertinggi di angka **95.15%**.
-* **Analisis:** SVM paling unggul dalam proyek ini karena mampu menangani fitur diameter dan berat yang memiliki batas pemisahan linear yang cukup jelas.
-* **Kelebihan:** Memiliki nilai F1-score paling stabil dan jumlah kesalahan prediksi paling minim.
 
 ![Confusion Matrix SVM](images/CM_SVM.png)
 ![Classification Report SVM](images/CR_SVM.png)
+
+##  Precision (Ketepatan)
+* **Grapefruit:** Dari seluruh buah yang diprediksi sebagai Grapefruit, sebanyak **93%** adalah benar.
+* **Orange:** Dari seluruh buah yang diprediksi sebagai Orange, sebanyak **98%** adalah benar. Ini menunjukkan tingkat keyakinan yang sangat tinggi saat model menentukan sebuah buah adalah Orange.
+
+##  Recall (Keberhasilan Menangkap)
+* **Grapefruit:** Dari total **988** data Grapefruit yang ada, model berhasil menangkap **98%** (965 data). Hampir seluruh data Grapefruit berhasil diidentifikasi.
+* **Orange:** Dari total **1,012** data Orange yang ada, model berhasil menangkap **93%** (938 data).
+
+## F1-Score
+Nilai F1-Score untuk kedua kelas berada di angka **0.95**. Ini menunjukkan performa yang sangat harmonis dan tinggi antara *Precision* dan *Recall*.
+
+##  Support (Jumlah Data Uji)
+* **Grapefruit (0):** 988 data.
+* **Orange (1):** 1,012 data.
+* **Total Keseluruhan:** 2,000 data.
+
+##  Kesimpulan Akurasi
+Model Support Vector Machine (SVM) ini menghasilkan **Accuracy Score sebesar 0.9515 (95.15%)**. Sejauh ini, SVM menunjukkan performa yang paling unggul dibandingkan model-model sebelumnya karena memiliki akurasi tertinggi dan tingkat kesalahan minimal pada deteksi Grapefruit.
+
+
+##  Confusion Matrix 
+Confusion Matrix ini memberikan gambaran detail mengenai jumlah prediksi yang benar dan salah:
+
+| Komponen | Nama Teknis | Jumlah | Penjelasan |
+| :--- | :--- | :--- | :--- |
+| **True Negative (TN)** | Benar Grapefruit | **965** | Model berhasil memprediksi buah Grapefruit dengan sangat akurat. |
+| **False Positive (FP)** | Salah Orange | **23** | Model mengira Orange, padahal aslinya adalah Grapefruit. |
+| **False Negative (FN)** | Salah Grapefruit | **74** | Model mengira Grapefruit, padahal aslinya adalah Orange. |
+| **True Positive (TP)** | Benar Orange | **938** | Model berhasil memprediksi buah Orange dengan tepat. |
+
+### Analisis Performa per Kelas (SVM)
+
+#### **Kelas 0 (Grapefruit)**
+* **Total Data Aktual:** 965 (TN) + 23 (FP) = **988 data**.
+* **Akurasi Lokal (Recall):** Model memiliki kemampuan sangat tinggi dalam mengenali Grapefruit, yaitu sebesar **98%**. Ini adalah performa terbaik dibandingkan model lainnya.
+* **Kesalahan Prediksi:** Hanya ada **23** buah Grapefruit yang salah terdeteksi sebagai Orange.
+
+#### **Kelas 1 (Orange)**
+* **Total Data Aktual:** 74 (FN) + 938 (TP) = **1,012 data**.
+* **Akurasi Lokal (Recall):** Model mampu mengenali sekitar **93%** dari total data Orange yang ada.
+* **Kesalahan Prediksi:** Terdapat **74** buah Orange yang dianggap sebagai Grapefruit oleh model.
+
+---
+### Insight & Evaluasi Model SVM
+* **Ketepatan Prediksi Orange (Precision):** Salah satu keunggulan utama SVM pada dataset ini adalah nilai *Precision* untuk Orange yang mencapai **98%**. Artinya, jika model menebak "Orange", kemungkinan besar tebakan itu benar karena hanya ada 23 data Grapefruit yang "menyelinap" masuk ke prediksi Orange.
+* **Dominasi Grapefruit:** Model SVM terlihat lebih "mengenal" karakteristik Grapefruit dibandingkan Orange, terlihat dari jumlah False Positive (23) yang jauh lebih kecil dibandingkan False Negative (74).
+* **Performa Unggul:** Dengan Accuracy Score **0.9515**, SVM menjadi model yang paling direkomendasikan untuk dataset ini karena mampu meminimalkan kesalahan klasifikasi secara signifikan dibandingkan Naive Bayes maupun Decision Tree.
+* **Visualisasi Matriks:** Pada  kotak kiri atas (965) terlihat sangat gelap, menandakan tingkat keberhasilan identifikasi kelas 0 yang hampir sempurna.
 
 ---
 
