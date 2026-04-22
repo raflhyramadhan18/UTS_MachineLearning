@@ -4,7 +4,7 @@ Proyek ini bertujuan untuk membangun model machine learning yang dapat mengklasi
 
 ## Identitas
 * **Nama:** Raflhy Nur Ramadhan
-* **NIM:** [Masukkan NIM Anda]
+* **NIM:** 1237050004
 * **Kelas:** Informatika - Semester 6
 * **Kampus:** UIN Sunan Gunung Djati Bandung
 
