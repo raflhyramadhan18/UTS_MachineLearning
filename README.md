@@ -1,8 +1,7 @@
 # UTS Machine Learning - Klasifikasi Buah Jeruk & Anggur
 
-Proyek ini bertujuan untuk membangun model machine learning yang dapat mengklasifikasikan buah ke dalam kategori **Jeruk (Orange)** atau **Anggur (Grapefruit)** berdasarkan fitur fisik dan warna.
+Proyek ini bertujuan untuk membangun model machine learning yang dapat mengklasifikasikan buah ke dalam kategori **Jeruk (Orange)** atau **Anggur (Grapefruit)** 
 
-## Identitas
 * **Nama:** Raflhy Nur Ramadhan
 * **NIM:** 1237050004
 * **Kelas:** Informatika - Semester 6
