@@ -38,7 +38,7 @@ Langkah-langkah yang dilakukan untuk menyiapkan data:
 
 ---
 
-## 4. Modelling & Evaluasi Mendalam
+## 4. Modelling & Evaluasi 
 
 ![Confusion Matrix DT](images/CM_DT.png)  ![Classification Report DT](images/CR_DT.png)
 
